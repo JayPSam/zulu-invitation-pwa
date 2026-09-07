@@ -981,3 +981,94 @@ color: #a99983;
         bottom: 30px;
     }
 }
+
+/* =========================================
+   OPENING CARD — STAGE 2
+   HERO REFINEMENT
+   ========================================= */
+
+/* Keep the title completely inside the phone */
+.slide:first-of-type .opening h1 {
+    width: 100%;
+    box-sizing: border-box;
+
+    font-size: clamp(48px, 14.5vw, 82px);
+    letter-spacing: 5px;
+
+    white-space: nowrap;
+    text-align: center;
+
+    transform: none;
+}
+
+/* Restore a clean diamond ornament */
+.slide:first-of-type .ornament {
+    width: 42px;
+    height: 42px;
+
+    margin: 12px 0 24px;
+
+    border: none;
+
+    transform: none;
+
+    position: relative;
+}
+
+/* Diamond itself */
+.slide:first-of-type .ornament::before {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid #d7a94b;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 14px rgba(215,169,75,.08);
+}
+
+
+/* Remove any unwanted square/frame */
+.slide:first-of-type .ornament::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: none;
+}
+
+/* Put the central content slightly higher */
+.slide:first-of-type .slide-content {
+    transform: translateY(-18px);
+}
+
+/* Give UTHANDO more breathing room */
+.slide:first-of-type .opening h1 + .subtitle {
+    margin-top: 12px;
+}
+
+
+/* Make the invitation message slightly narrower */
+.slide:first-of-type .small-text {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Keep the bead borders from dominating */
+.slide:first-of-type .bead-border {
+    opacity: .9;
+}
+
+/* Slightly softer swipe instruction */
+.slide:first-of-type .swipe-hint {
+    opacity: .78;
+}
