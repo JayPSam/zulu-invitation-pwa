@@ -1072,3 +1072,133 @@ color: #a99983;
 .slide:first-of-type .swipe-hint {
     opacity: .78;
 }
+
+/* =========================================
+   STAGE 3 — THE COUPLE REVEAL
+   ========================================= */
+
+.slide:nth-of-type(2) .pattern-two {
+    opacity: .08;
+}
+
+/* Give the entire couple reveal more presence */
+.slide:nth-of-type(2) .names {
+    width: min(88%, 420px);
+    text-align: center;
+}
+
+/* UMSHADO */
+.slide:nth-of-type(2) .small-label {
+    margin-bottom: 28px;
+    letter-spacing: 7px;
+    font-size: 12px;
+}
+
+
+/* Decorative diamond */
+.slide:nth-of-type(2) .ornament {
+    font-size: 26px;
+    color: #d7a94b;
+    margin: 5px 0 30px;
+
+    text-shadow:
+        0 0 18px rgba(215,169,75,.18);
+}
+
+/* Couple's names */
+.slide:nth-of-type(2) .names h2 {
+    font-size: clamp(54px, 15vw, 82px);
+    line-height: .9;
+    letter-spacing: 1px;
+
+    margin: 0;
+
+    color: #f1e5d0;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,.35);
+}
+
+/* The ampersand becomes the connecting symbol */
+.slide:nth-of-type(2) .names h2 span {
+    position: relative;
+
+    margin: 20px 0;
+
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 400;
+
+    color: #d7a94b;
+}
+
+/* Little horizontal lines around & */
+.slide:nth-of-type(2) .names h2 span::before,
+.slide:nth-of-type(2) .names h2 span::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+
+    width: 34px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(215,169,75,.65)
+    );
+}
+
+.slide:nth-of-type(2) .names h2 span::before {
+    right: calc(100% + 14px);
+}
+
+.slide:nth-of-type(2) .names h2 span::after {
+    left: calc(100% + 14px);
+
+    transform: rotate(180deg);
+}
+
+/* Replace the generic English-looking paragraph treatment */
+.slide:nth-of-type(2) .script {
+    margin-top: 38px;
+
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    letter-spacing: .4px;
+
+    color: #bcae9b;
+}
+
+/* Decorative bead line */
+.slide:nth-of-type(2) .bead-line {
+    margin-top: 35px;
+    gap: 10px;
+}
+
+.slide:nth-of-type(2) .bead-line i,
+.slide:nth-of-type(2) .bead-line b {
+    box-shadow: 0 0 10px rgba(215,169,75,.08);
+}
+
+/* Small phones */
+@media (max-height: 650px) {
+
+    .slide:nth-of-type(2) .names h2 {
+        font-size: 52px;
+    }
+
+    .slide:nth-of-type(2) .ornament {
+        margin-bottom: 20px;
+    }
+
+    .slide:nth-of-type(2) .script {
+        margin-top: 25px;
+    }
+}
