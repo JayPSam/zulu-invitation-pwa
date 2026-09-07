@@ -1,1 +1,803 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #090807;
+    color: #f4ead8;
+    font-family: "Cormorant Garamond", serif;
+    touch-action: pan-y;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.invitation {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #3a2118 0%,
+            #1a100d 38%,
+            #090807 100%
+        );
+}
+
+/* -------------------------
+   SLIDES
+------------------------- */
+
+.slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 28px;
+
+padding: 60px 28px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 0.8s ease,
+        transform 1s cubic-bezier(.22,.61,.36,1),
+        visibility 0.8s;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+.slide-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: 480px;
+
+    text-align: center;
+}
+
+/* -------------------------
+   BACKGROUND PATTERNS
+------------------------- */
+
+.pattern {
+    position: absolute;
+    inset: 0;
+
+    opacity: .22;
+    pointer-events: none;
+}
+
+
+.pattern-one {
+    background:
+        linear-gradient(135deg, transparent 46%, #d7a94b 47%, #d7a94b 49%, transparent 50%),
+        linear-gradient(45deg, transparent 46%, #8e2222 47%, #8e2222 49%, transparent 50%);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.pattern-two {
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0 18px,
+            #d7a94b 19px 21px,
+            transparent 22px 40px
+        );
+    opacity: .12;
+}
+
+
+.pattern-three {
+    background:
+        radial-gradient(circle, #d7a94b 2px, transparent 3px);
+    background-size: 28px 28px;
+    opacity: .12;
+}
+
+.pattern-four {
+    background:
+        linear-gradient(45deg, transparent 48%, #d7a94b 49%, transparent 51%),
+        linear-gradient(-45deg, transparent 48%, #8e2222 49%, transparent 51%);
+    background-size: 70px 70px;
+    opacity: .12;
+}
+
+
+.pattern-five {
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 22px,
+            #d7a94b 23px 25px,
+            transparent 26px 50px
+        );
+    opacity: .08;
+}
+
+.pattern-six {
+    background:
+        radial-gradient(circle at 20% 30%, #d7a94b 1px, transparent 2px),
+        radial-gradient(circle at 70% 70%, #8e2222 1px, transparent 2px);
+    background-size: 35px 35px;
+    opacity: .15;
+}
+
+/* -------------------------
+   TOP/BOTTOM BEADWORK
+------------------------- */
+
+.bead-border {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 17px;
+
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    overflow: hidden;
+}
+
+.top-border {
+    top: 0;
+}
+
+
+.bottom-border {
+    bottom: 0;
+}
+
+
+.bead-border span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 2px;
+
+    transform: rotate(45deg);
+
+    background: #d7a94b;
+}
+
+.bead-border span:nth-child(3n) {
+    background: #a52b2b;
+}
+
+
+.bead-border span:nth-child(4n) {
+    background: #f0eee6;
+}
+
+
+.bead-border span:nth-child(5n) {
+    background: #1d4d69;
+}
+
+/* -------------------------
+   TYPOGRAPHY
+------------------------- */
+
+.small-label {
+    font-family: "Playfair Display", serif;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: #d7a94b;
+
+    margin-bottom: 22px;
+}
+
+.opening h1 {
+    font-size: clamp(54px, 16vw, 90px);
+
+    letter-spacing: 8px;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 30px rgba(215,169,75,.15);
+}
+
+
+.subtitle {
+    margin-top: -5px;
+
+    font-size: 24px;
+
+    color: #d8c2a0;
+
+    font-style: italic;
+}
+
+.small-text {
+    max-width: 300px;
+
+    margin: 28px auto 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #c9baa4;
+}
+
+
+.ornament {
+    color: #d7a94b;
+
+    font-size: 32px;
+
+    margin: 15px 0;
+}
+
+.line {
+    width: 65px;
+    height: 1px;
+
+    margin: 22px auto;
+
+    background: #d7a94b;
+}
+
+/* -------------------------
+   NAMES
+------------------------- */
+
+.names h2 {
+    font-size: clamp(55px, 15vw, 90px);
+
+    line-height: .82;
+
+    font-weight: 500;
+}
+
+
+.names h2 span {
+    display: block;
+
+    margin: 14px 0;
+
+    color: #d7a94b;
+
+    font-size: 34px;
+
+  font-style: italic;
+}
+
+.script {
+    margin-top: 35px;
+
+    color: #c8b79e;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+}
+
+
+.bead-line {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.bead-line i,
+.bead-line b {
+    display: block;
+
+    width: 9px;
+    height: 9px;
+
+    transform: rotate(45deg);
+}
+
+
+.bead-line i {
+    background: #a52b2b;
+}
+
+
+.bead-line b {
+    width: 14px;
+    height: 14px;
+
+    background: #d7a94b;
+}
+
+/* -------------------------
+   DETAILS
+------------------------- */
+
+.details h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 55px;
+
+    line-height: .85;
+
+    font-weight: 500;
+
+    color: #f1e5d0;
+}
+
+.details h2 strong {
+    display: block;
+
+    font-size: 17px;
+
+    letter-spacing: 6px;
+
+    color: #d7a94b;
+
+    margin: 13px 0;
+}
+
+
+.detail-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 40px 0;
+}
+
+.detail {
+    padding: 20px 10px;
+
+    border-top: 1px solid rgba(215,169,75,.5);
+    border-bottom: 1px solid rgba(215,169,75,.5);
+}
+
+
+.detail .icon {
+    display: block;
+
+    font-size: 25px;
+
+    color: #d7a94b;
+
+    margin-bottom: 10px;
+}
+
+.detail small {
+    display: block;
+
+    font-family: "Playfair Display", serif;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+
+    color: #aa9a85;
+}
+
+
+.detail strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 18px;
+
+    font-weight: 500;
+}
+
+.details > p {
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    color: #c9baa4;
+}
+
+/* -------------------------
+   SHIELD
+------------------------- */
+
+.shield-shape {
+    position: relative;
+
+    width: 155px;
+    height: 190px;
+
+    margin: 0 auto 35px;
+
+    background: #572c20;
+
+    clip-path: polygon(
+        50% 0%,
+        93% 15%,
+        82% 75%,
+        50% 100%,
+        18% 75%,
+        7% 15%
+    );
+
+border: 2px solid #d7a94b;
+}
+
+
+.shield-pattern {
+    position: absolute;
+    inset: 15px;
+
+    clip-path: inherit;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #d7a94b 0 8px,
+            #8e2222 8px 16px,
+            #f0eee6 16px 24px,
+            #244d63 24px 32px
+        );
+
+    opacity: .85;
+}
+
+.shield-text {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+
+    color: #fff1d2;
+}
+
+.quote {
+    max-width: 330px;
+
+    margin: auto;
+
+    font-size: 25px;
+
+    line-height: 1.35;
+
+    font-style: italic;
+}
+
+.translation {
+    max-width: 300px;
+
+    margin: 18px auto;
+
+    color: #a99b88;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+/* -------------------------
+   RSVP
+------------------------- */
+
+.rsvp h2 {
+    font-size: 80px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 20px;
+}
+
+.rsvp p {
+    max-width: 300px;
+
+    margin: auto;
+
+    color: #bcae9b;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+.rsvp-button,
+.create-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin: 35px auto 15px;
+
+    padding: 17px 20px;
+
+    border: 1px solid #d7a94b;
+
+    color: #f1e5d0;
+
+  text-decoration: none;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+.rsvp-button:hover,
+.create-button:hover {
+    background: rgba(215,169,75,.12);
+
+    transform: translateY(-2px);
+}
+
+
+.rsvp-button b,
+.create-button span {
+    color: #d7a94b;
+
+    font-size: 20px;
+}
+
+.contact {
+    color: #a99b88;
+
+    font-size: 15px;
+}
+
+/* -------------------------
+   ADVERTISEMENT
+------------------------- */
+
+.advert h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 15vw, 85px);
+
+    line-height: .85;
+
+    letter-spacing: 3px;
+}
+
+
+.advert p {
+    max-width: 320px;
+
+    margin: 30px auto;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    color: #bcae9b;
+}
+
+
+.create-button {
+    margin-top: 15px;
+}
+
+.brand {
+    margin-top: 55px;
+
+    font-family: "Playfair Display", serif;
+
+    letter-spacing: 8px;
+
+    font-size: 12px;
+
+    color: #d7a94b;
+}
+
+/* -------------------------
+   SWIPE
+------------------------- */
+
+.swipe-hint {
+    position: absolute;
+
+    bottom: 48px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+color: #a99983;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    animation: float 2s infinite ease-in-out;
+}
+
+.arrow {
+    margin-top: 7px;
+
+    color: #d7a94b;
+
+    font-size: 20px;
+}
+
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 7px);
+    }
+
+}
+
+/* -------------------------
+   DOTS
+------------------------- */
+
+.dots {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #756b5e;
+
+    transition: .3s ease;
+}
+
+.dot.active {
+    height: 18px;
+
+    border-radius: 5px;
+
+    background: #d7a94b;
+}
+
+/* -------------------------
+   REVEAL ANIMATIONS
+------------------------- */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    animation: reveal .8s forwards;
+}
+
+
+.delay-1 {
+    animation-delay: .15s;
+}
+
+.delay-2 {
+    animation-delay: .3s;
+}
+
+
+.delay-3 {
+    animation-delay: .45s;
+}
+
+
+.delay-4 {
+    animation-delay: .6s;
+}
+
+@keyframes reveal {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-height: 650px) {
+
+    .slide {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .names h2 {
+        font-size: 55px;
+    }
+
+    .shield-shape {
+        width: 115px;
+        height: 140px;
+
+        margin-bottom: 20px;
+    }
+
+    .quote {
+        font-size: 20px;
+    }
+
+}
